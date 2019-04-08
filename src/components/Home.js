@@ -1,10 +1,10 @@
 import React from 'react'
-import Data from './main/Data';
+import Empires from './main/Empires';
 
 function Home() {
   return (
     <div>
-      <Data className="container"/>
+      <Empires className="container"/>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import baseURL from '../../config.js';
 import Select from 'react-select';
 
-class Data extends Component {
+class Empires extends Component {
   state = {
     data: [],
     tech: null,
@@ -15,7 +16,7 @@ class Data extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/api/v1/civilizations')
+    fetch(baseURL + '/api/v1/civilizations')
     .then(res => res.json())
     .then(data => {
       this.setState({
@@ -59,7 +60,7 @@ class Data extends Component {
   }
 
   selectKingdom = async civilization => {
-    const url = `http://localhost:8080/api/v1/civilization/${civilization}`;
+    const url = baseURL + `/api/v1/civilization/${civilization}`;
     const res = await fetch(url);
     const data = await res.json();
     return this.setState({ kingdom: data });
@@ -180,4 +181,4 @@ const style = {
   }
 }
 
-export default Data;
+export default Empires;
